@@ -1,0 +1,11 @@
+# DEMO Isvero Studio – e-Urząd (Next.js). Osobna aplikacja Coolify; domena tylko na usłudze "web" (port 3000).
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    expose:
+      - "3000"
+    deploy:
+      resources:
+        limits: { memory: 256M, cpus: "0.5" }
+    logging: { driver: json-file, options: { max-size: "10m", max-file: "3" } }

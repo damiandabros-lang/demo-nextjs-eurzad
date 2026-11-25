@@ -1,0 +1,1 @@
+{"name":"demo-nextjs-eurzad","subdomain":"demo-eurzad","web_service":"web","port":3000,"compose":"/docker-compose.yml","check_path":"/","env":{},"generate_secrets":[]}
