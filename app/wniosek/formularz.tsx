@@ -41,6 +41,7 @@ export function Formularz({ uslugi, domyslna }: { uslugi: Usluga[]; domyslna?: s
         </div>
       )}
       <p className="hint">Używaj wyłącznie fikcyjnych danych. Nie wpisuj prawdziwego numeru PESEL.</p>
+      <p className="hint">W prawdziwym wdrożeniu wnioskodawca loguje się przez login.gov.pl (profil zaufany, e-dowód, aplikacja mObywatel), podpisuje wniosek i otrzymuje UPO. W demo ten krok jest pominięty.</p>
       <p className="hint">Pola oznaczone gwiazdką (*) są wymagane.</p>
       <div className="field">
         <label htmlFor="usluga">Usługa *</label>
