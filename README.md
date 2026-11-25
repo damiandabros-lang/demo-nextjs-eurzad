@@ -2,6 +2,8 @@
 
 > **Projekt pokazowy (portfolio) Isvero Studio, listopad 2026 r.** Nie jest to serwis żadnej instytucji ani realizacja dla klienta. „Gmina Przykładowo” i wszystkie dane są fikcyjne. Formularze nic nie zapisują ani nie wysyłają.
 
+**Demo na żywo:** https://demo-eurzad.isverostudio.com (noindex)
+
 ## Co pokazuje
 - katalog e-usług z wyszukiwarką i filtrem kategorii (działa bez JS – formularz GET),
 - karty usług (wymagane dokumenty, opłata, termin), generowane statycznie (SSG),
