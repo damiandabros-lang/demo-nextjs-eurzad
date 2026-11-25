@@ -14,4 +14,4 @@ jobs:
       - run: npx playwright@1 install --with-deps chromium
       - run: |
           npm i --no-save playwright@1
-          (npm start &) && sleep 5 && node tests/e2e/a11y.mjs
+          (cp -r .next/static .next/standalone/.next/ && cd .next/standalone && PORT=3000 node server.js &) && sleep 5 && node tests/e2e/a11y.mjs
