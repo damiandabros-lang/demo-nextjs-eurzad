@@ -16,3 +16,13 @@ test("puste pola i zła usługa dają komunikaty", () => {
 });
 test("zły PESEL jest odrzucany", () => assert.ok(waliduj({ ...ok, pesel: "11111111111" }, ["a"]).pesel));
 test("numer sprawy ma format EU/RRRR/NNNNN", () => assert.match(numerSprawy("abc", new Date("2026-11-25")), /^EU\/2026\/\d{5}$/));
+
+
+test("telefon: liczymy cyfry, nie separatory", () => {
+  for (const telefon of [undefined, "", "   ", "123456789", "+48 123-456-789"]) {
+    assert.equal(waliduj({ ...ok, telefon }, ["a"]).telefon, undefined);
+  }
+  for (const telefon of ["---------", "12-------", "12345678", "1234567890123456", "12+3456789", "abcdefghi"]) {
+    assert.ok(waliduj({ ...ok, telefon }, ["a"]).telefon, telefon);
+  }
+});

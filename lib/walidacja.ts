@@ -25,7 +25,9 @@ export function waliduj(d: DaneWniosku, slugi: string[]): Bledy {
   if (d.imie.trim().length < 2) b.imie = "Podaj imię (co najmniej 2 znaki).";
   if (d.nazwisko.trim().length < 2) b.nazwisko = "Podaj nazwisko (co najmniej 2 znaki).";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email.trim())) b.email = "Podaj poprawny adres e-mail, np. jan@example.org.";
-  if (d.telefon && !/^\+?[\d\s-]{9,15}$/.test(d.telefon.trim())) b.telefon = "Podaj numer telefonu (9–15 cyfr).";
+  const telefon = d.telefon?.trim() ?? "";
+  const cyfryTelefonu = telefon.replace(/[\s-]/g, "");
+  if (telefon && (!/^\+?[\d\s-]+$/.test(telefon) || !/^\+?\d{9,15}$/.test(cyfryTelefonu))) b.telefon = "Podaj numer telefonu (9–15 cyfr; możesz użyć spacji i myślników).";
   if (d.pesel && !poprawnyPesel(d.pesel.trim())) b.pesel = "Numer PESEL jest niepoprawny (sprawdź 11 cyfr).";
   if (d.tresc.trim().length < 10) b.tresc = "Opisz sprawę (co najmniej 10 znaków).";
   if (!d.zgoda) b.zgoda = "Potwierdź zapoznanie się z informacją o przetwarzaniu danych.";

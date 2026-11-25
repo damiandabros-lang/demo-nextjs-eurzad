@@ -4,8 +4,9 @@ export const metadata: Metadata = { title: "Sprawdź status sprawy" };
 const ETAPY = ["Wniosek przyjęty", "Przekazany do referatu", "W trakcie rozpatrywania", "Załatwiony"];
 
 export default async function Status({ searchParams }: { searchParams: Promise<{ numer?: string }> }) {
-  const { numer = "" } = await searchParams;
-  const ok = /^EU\/\d{4}\/\d{5}$/.test(numer.trim());
+  const { numer: podanyNumer = "" } = await searchParams;
+  const numer = podanyNumer.trim();
+  const ok = /^EU\/\d{4}\/\d{5}$/.test(numer);
   const etap = ok ? Number(numer.slice(-1)) % ETAPY.length : -1;
   return (
     <>

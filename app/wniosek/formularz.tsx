@@ -60,7 +60,11 @@ export function Formularz({ uslugi, domyslna }: { uslugi: Usluga[]; domyslna?: s
         <div className="field"><label htmlFor="pesel">PESEL</label><input id="pesel" name="pesel" inputMode="numeric" autoComplete="off" aria-invalid={!!b.pesel} aria-describedby={opis("pesel", "pesel-hint")} /><p className="hint" id="pesel-hint">Opcjonalnie. W demo sprawdzamy tylko sumę kontrolną i nie zapisujemy numeru.</p>{b.pesel && <p className="err" id="pesel-err">{b.pesel}</p>}</div>
       </fieldset>
       <div className="field"><label htmlFor="tresc">Opis sprawy *</label><textarea id="tresc" name="tresc" required rows={6} defaultValue={w.tresc} aria-invalid={!!b.tresc} aria-describedby={opis("tresc")} />{b.tresc && <p className="err" id="tresc-err">{b.tresc}</p>}</div>
-      <div className="field check"><input id="zgoda" name="zgoda" required type="checkbox" defaultChecked={!!w.zgoda} aria-invalid={!!b.zgoda} aria-describedby={opis("zgoda")} /><label htmlFor="zgoda">Zapoznałem(-am) się z informacją o przetwarzaniu danych (demo). *</label></div>
+      <section className="hint" aria-labelledby="dane-demo-h">
+        <h2 id="dane-demo-h">Co dzieje się z danymi w demo?</h2>
+        <p id="dane-demo">Po wybraniu „Wyślij wniosek” wpisane dane trafiają do serwera tego demo wyłącznie w celu sprawdzenia formularza. Nie zapisujemy treści wniosku w bazie ani nie przekazujemy jej do urzędu. Numer sprawy i jej status są symulowane. Przy błędzie wartości pól wracają do formularza, z wyjątkiem numeru PESEL. Używaj wyłącznie danych fikcyjnych — nie jest to kanał do składania rzeczywistych spraw.</p>
+      </section>
+      <div className="field check"><input id="zgoda" name="zgoda" required type="checkbox" defaultChecked={!!w.zgoda} aria-invalid={!!b.zgoda} aria-describedby={opis("zgoda", "dane-demo")} /><label htmlFor="zgoda">Zapoznałem(-am) się z informacją o przetwarzaniu danych (demo). *</label></div>
       {b.zgoda && <p className="err" id="zgoda-err">{b.zgoda}</p>}
       <button className="btn" type="submit" disabled={trwa} aria-disabled={trwa}>{trwa ? "Wysyłanie…" : "Wyślij wniosek"}</button>
     </form>
