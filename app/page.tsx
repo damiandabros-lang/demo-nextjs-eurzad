@@ -21,7 +21,7 @@ export default function Start() {
       <ul>
         <li>Next.js 15 (App Router, Server Components, Server Actions), React 19, TypeScript (strict)</li>
         <li>Formularze działające także bez JavaScriptu (progressive enhancement)</li>
-        <li>Przygotowane miejsce na integrację z login.gov.pl (Węzeł Krajowy), podpis wniosku i UPO – w demo pominięte</li>
+        <li>Plan docelowy: uwierzytelnienie przez login.gov.pl (Węzeł Krajowy) oraz odrębna obsługa podpisu wniosku i UPO — integracje nie są wdrożone w demo</li>
         <li>Testy jednostkowe (node:test) i testy dostępności axe-core w Playwright</li>
         <li>Obraz Docker „standalone”, wdrożenie przez Coolify</li>
       </ul>

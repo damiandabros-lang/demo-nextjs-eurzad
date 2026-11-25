@@ -26,6 +26,7 @@ export default async function Karta({ params }: { params: Promise<{ slug: string
       </dl>
       <h2>Co przygotować</h2>
       <ul>{u.wymagane.map((w) => <li key={w}>{w}</li>)}</ul>
+      {u.zrodlo && <p className="hint">Sprawdź zasady i wyjątki: <a href={u.zrodlo.url}>{u.zrodlo.nazwa}</a>. Ta karta jest przykładem demonstracyjnym.</p>}
       {u.online && <p><Link className="btn" href={`/wniosek?usluga=${u.slug}`}>Złóż wniosek online</Link></p>}
     </>
   );
