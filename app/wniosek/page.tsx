@@ -9,9 +9,6 @@ export default async function Wniosek({ searchParams }: { searchParams: Promise<
   return (
     <>
       <h1>Złóż wniosek</h1>
-      <ol className="steps" aria-label="Etapy">
-        <li aria-current="step">1. Dane i treść</li><li>2. Potwierdzenie</li>
-      </ol>
       <Formularz uslugi={USLUGI.filter((u) => u.online)} domyslna={usluga} />
     </>
   );
