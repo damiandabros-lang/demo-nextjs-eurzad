@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="site">
           <div className="wrap">
             <p>DEMO portfolio Isvero Studio, 2026 · Next.js, React, TypeScript · <a href="/dostepnosc">Deklaracja dostępności</a></p>
-            <p>„Gmina Przykładowo” jest fikcyjna. Formularze nie zapisują ani nie wysyłają danych.</p>
+            <p>„Gmina Przykładowo” jest fikcyjna. Formularz wysyła dane do serwera demo do walidacji; nie zapisuje wniosku ani nie przekazuje go do urzędu. Używaj danych fikcyjnych.</p>
           </div>
         </footer>
       </body>

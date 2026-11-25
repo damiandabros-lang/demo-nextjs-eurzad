@@ -23,7 +23,7 @@ export function Formularz({ uslugi, domyslna }: { uslugi: Usluga[]; domyslna?: s
       <Etapy gotowe />
       <div className="success" role="status" tabIndex={-1} ref={sukces}>
         <h2>Wniosek przyjęty (demo)</h2>
-        <p>Numer sprawy: <strong>{stan.numer}</strong>. W wersji demonstracyjnej dane nie zostały zapisane ani wysłane.</p>
+        <p>Numer sprawy: <strong>{stan.numer}</strong>. W wersji demonstracyjnej nie zapisano wniosku ani nie przekazano go do urzędu.</p>
         <p><a href={`/status?numer=${encodeURIComponent(stan.numer)}`}>Sprawdź status tej sprawy</a></p>
       </div>
       </>
@@ -45,7 +45,9 @@ export function Formularz({ uslugi, domyslna }: { uslugi: Usluga[]; domyslna?: s
       <p className="hint">Pola oznaczone gwiazdką (*) są wymagane.</p>
       <div className="field">
         <label htmlFor="usluga">Usługa *</label>
-        <select id="usluga" name="usluga" required defaultValue={w.usluga ?? ""} aria-invalid={!!b.usluga} aria-describedby={opis("usluga")}>
+        {/* Ponowne utworzenie selecta aktualizuje defaultSelected opcji przed resetem
+            formularza przez React. Sama zmiana defaultValue nie zachowuje wyboru. */}
+        <select key={w.usluga ?? ""} id="usluga" name="usluga" required defaultValue={w.usluga ?? ""} aria-invalid={!!b.usluga} aria-describedby={opis("usluga")}>
           <option value="">– wybierz –</option>
           {uslugi.map((u) => <option key={u.slug} value={u.slug}>{u.nazwa}</option>)}
         </select>
